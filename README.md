@@ -27,13 +27,7 @@ A comprehensive wearable health monitoring system built on ESP32-S3 using FreeRT
    ```bash
    pio device monitor -b 115200
    ```
-
-## Notes
-- Default PlatformIO environment: `adafruit_camera_esp32s3`.
-- Ensure the board has PSRAM enabled (required by this environment).
-- If using VS Code, select the environment and run **Build** / **Upload** from the PlatformIO sidebar.
-
-
+   
 ## Project Overview 📋
 
 Neuroband is a multi-sensor health monitoring wearable that combines real-time vital sign acquisition with intelligent emergency detection. The device communicates with a Node-RED server via MQTT to display data and handle remote monitoring.
