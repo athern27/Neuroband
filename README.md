@@ -1,4 +1,6 @@
 # Neuroband - Smart Safety Armband
+![Neuroband-Smart_Safety_Armband Logo](Neuroband-Smart_Safety_Armband.png)
+
 
 A comprehensive wearable health monitoring system built on ESP32-S3 using FreeRTOS. The system continuously monitors vital signs (heart rate, ECG, movement) and can automatically trigger an emergency alert (SOS) if critical conditions are detected.
 
