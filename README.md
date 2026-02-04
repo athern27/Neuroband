@@ -17,17 +17,13 @@ A comprehensive wearable health monitoring system built on ESP32-S3 using FreeRT
    cd Neuroband
    ```
 3) Update credentials/broker in `src/main.cpp` near the top (`ssid`, `password`, `mqtt_server`) to match your environment.
-4) Build firmware:  
+4) Build firmware :  
    ```bash
    pio run
    ```
-5) Connect the board via USB, then upload:  
+5) Build firmware, then upload:  
    ```bash
-   pio run -t upload
-   ```
-6) Open serial monitor (115200 baud):  
-   ```bash
-   pio device monitor -b 115200
+   platformio run --target upload --target monitor --environment adafruit_camera_esp32s3
    ```
    
 ## Project Overview 📋
