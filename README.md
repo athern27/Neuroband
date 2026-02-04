@@ -1,9 +1,9 @@
 # Neuroband
 
-Smart safety armband that monitors motion, pulse oximetry, ECG, and displays data on a small TFT, backed by MQTT connectivity.
+A comprehensive wearable health monitoring system built on ESP32-S3 using FreeRTOS. The system continuously monitors vital signs (heart rate, ECG, movement) and can automatically trigger an emergency alert (SOS) if critical conditions are detected.
 
 ## Hardware
-- **Board:** Adafruit ESP32-S3 Reverse TFT (adafruit_camera_esp32s3)
+- **Board:** Adafruit Memento Board
 - **Sensors/Libraries:** LIS3DH accelerometer, MAX3010x pulse-oximeter, OLED/TFT via Adafruit GFX & ST7735, AW9523 I/O expander, PubSubClient for MQTT.
 
 ## Build & Flash (PlatformIO)
