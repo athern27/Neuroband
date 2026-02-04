@@ -326,7 +326,7 @@ const char* mqtt_server = "192.168.1.130";
 | **Display Refresh** | 100ms (10 FPS) |
 | **BPM Update** | Per beat + 1 second sync |
 | **MQTT Publish Rate** | 1 second |
-| **Memory Used** | ~70% of available SRAM |
+| **Memory Used** | ~30% of available SRAM |
 
 ---
 
@@ -336,6 +336,7 @@ const char* mqtt_server = "192.168.1.130";
 - Check baud rate: must be 115200
 - Verify USB cable connection
 - Try different USB port
+- Press long reset board and then press boot button
 
 ### Sensors Not Found
 - Verify I2C wiring (SDA=34, SCL=33)
@@ -385,7 +386,6 @@ const char* mqtt_server = "192.168.1.130";
 
 - [ ] Bluetooth connectivity (BLE) for mobile app
 - [ ] Local data storage (SD card)
-- [ ] Advanced activity classification (walking, running, sitting)
 - [ ] Temperature monitoring
 - [ ] Blood oxygen (SpO2) tracking
 - [ ] Voice alerts in addition to audio SOS
@@ -396,8 +396,8 @@ const char* mqtt_server = "192.168.1.130";
 
 ## License & Credits 📝
 
-**Author:** Neuroband Team  
-**Platform:** ESP32-S3 with Arduino Framework  
+**Author:** Kartik Khandelwal  
+**Platform:** VSCode with PlatformIO  
 **Libraries Used:**
 - PubSubClient (MQTT)
 - Adafruit MAX30105
