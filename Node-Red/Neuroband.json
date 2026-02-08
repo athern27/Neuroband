@@ -1,0 +1,700 @@
+[
+    {
+        "id": "90b4604e78b9f9b8",
+        "type": "tab",
+        "label": "NeuroBand",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "be3c56d1d11a2b6e",
+        "type": "mqtt in",
+        "z": "90b4604e78b9f9b8",
+        "name": "",
+        "topic": "esp32/movement_status",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "40190016510a786f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 180,
+        "wires": [
+            [
+                "5c6afdacd1e9f889"
+            ]
+        ]
+    },
+    {
+        "id": "a955b507e7bfe57f",
+        "type": "mqtt in",
+        "z": "90b4604e78b9f9b8",
+        "name": "",
+        "topic": "esp32/help_status",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "40190016510a786f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 250,
+        "y": 320,
+        "wires": [
+            [
+                "70499726aab9ad97"
+            ]
+        ]
+    },
+    {
+        "id": "872dd23d8fafcb00",
+        "type": "mqtt in",
+        "z": "90b4604e78b9f9b8",
+        "name": "",
+        "topic": "esp32/blood_pressure_value",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "40190016510a786f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 440,
+        "wires": [
+            [
+                "4f0438349966bd17"
+            ]
+        ]
+    },
+    {
+        "id": "5c6afdacd1e9f889",
+        "type": "ui_text",
+        "z": "90b4604e78b9f9b8",
+        "group": "a3fd5844853ee978",
+        "order": 4,
+        "width": 5,
+        "height": 1,
+        "name": "Patient Current Movement",
+        "label": "MOVEMENT: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "15",
+        "color": "#004d65",
+        "x": 800,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "2c7d671abc0a6e07",
+        "type": "ui_text",
+        "z": "90b4604e78b9f9b8",
+        "group": "a3fd5844853ee978",
+        "order": 5,
+        "width": 5,
+        "height": 1,
+        "name": "Help Status",
+        "label": "Status: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "15",
+        "color": "#004d65",
+        "x": 750,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "4f0438349966bd17",
+        "type": "ui_text",
+        "z": "90b4604e78b9f9b8",
+        "group": "a3fd5844853ee978",
+        "order": 8,
+        "width": 5,
+        "height": 1,
+        "name": "Current Blood Pressure",
+        "label": "Blood Pressure: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "15",
+        "color": "#004d65",
+        "x": 770,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "c296164b4f138af9",
+        "type": "mqtt out",
+        "z": "90b4604e78b9f9b8",
+        "name": "",
+        "topic": "esp32/ask_ecg_data",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "40190016510a786f",
+        "x": 720,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "4d0ed7c2942b0c19",
+        "type": "ui_button",
+        "z": "90b4604e78b9f9b8",
+        "name": "",
+        "group": "a3fd5844853ee978",
+        "order": 10,
+        "width": 7,
+        "height": 1,
+        "passthru": false,
+        "label": "Get ECG data",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 240,
+        "y": 500,
+        "wires": [
+            [
+                "c296164b4f138af9"
+            ]
+        ]
+    },
+    {
+        "id": "8f13593d10ae38ee",
+        "type": "inject",
+        "z": "90b4604e78b9f9b8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 250,
+        "y": 240,
+        "wires": [
+            [
+                "a481f10bea4a2b15"
+            ]
+        ]
+    },
+    {
+        "id": "a481f10bea4a2b15",
+        "type": "function",
+        "z": "90b4604e78b9f9b8",
+        "name": "Return Current Date and Time",
+        "func": "const date = new Date();\n\n// 1. Array of Month names (Short)\nconst monthNames = [\"Jan\", \"Feb\", \"Mar\", \"Apr\", \"May\", \"Jun\",\n    \"Jul\", \"Aug\", \"Sep\", \"Oct\", \"Nov\", \"Dec\"];\n\n// 2. Get Day and determine ordinal suffix (st, nd, rd, th)\nconst day = date.getDate();\nlet suffix = 'th';\nif (day % 10 === 1 && day !== 11) {\n    suffix = 'st';\n} else if (day % 10 === 2 && day !== 12) {\n    suffix = 'nd';\n} else if (day % 10 === 3 && day !== 13) {\n    suffix = 'rd';\n}\n\n// 3. Get Month and Year (short 'YY)\nconst month = monthNames[date.getMonth()];\nconst year = String(date.getFullYear()).slice(-2); // Get last 2 digits\n\n// 4. Time components (unchanged)\nlet hours = date.getHours();\nconst minutes = String(date.getMinutes()).padStart(2, '0');\nconst seconds = String(date.getSeconds()).padStart(2, '0');\nconst ampm = hours >= 12 ? 'PM' : 'AM';\nhours = hours % 12;\nhours = hours ? hours : 12;\n\n// 5. Set payload\n// Result: \"25th Jan '26\"\nmsg.date = `${day}${suffix} ${month} '${year}`;\nmsg.time = `${String(hours).padStart(2, '0')}:${minutes}:${seconds} ${ampm}`;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 240,
+        "wires": [
+            [
+                "b6b3c2b60b437485",
+                "c5b4c10c1c4071f3"
+            ]
+        ]
+    },
+    {
+        "id": "b6b3c2b60b437485",
+        "type": "ui_text",
+        "z": "90b4604e78b9f9b8",
+        "group": "a3fd5844853ee978",
+        "order": 13,
+        "width": 4,
+        "height": 2,
+        "name": "Current Date",
+        "label": "Date: ",
+        "format": "{{msg.date}}",
+        "layout": "col-center",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "15",
+        "color": "#004d65",
+        "x": 790,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "90337812af000fc3",
+        "type": "ui_toast",
+        "z": "90b4604e78b9f9b8",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "Send SOS Notification",
+        "x": 740,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "70499726aab9ad97",
+        "type": "switch",
+        "z": "90b4604e78b9f9b8",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "HELP_OK",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "HELP_OK",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 470,
+        "y": 320,
+        "wires": [
+            [
+                "90337812af000fc3",
+                "2c7d671abc0a6e07"
+            ],
+            [
+                "2c7d671abc0a6e07"
+            ]
+        ]
+    },
+    {
+        "id": "28f52f7798ddbdbb",
+        "type": "mqtt in",
+        "z": "90b4604e78b9f9b8",
+        "name": "",
+        "topic": "esp32/recieve_ecg_data",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "40190016510a786f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 560,
+        "wires": [
+            [
+                "fc32f9322180e738"
+            ]
+        ]
+    },
+    {
+        "id": "0727010a751e82f5",
+        "type": "inject",
+        "z": "90b4604e78b9f9b8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 310,
+        "y": 620,
+        "wires": [
+            [
+                "485b04fbce25025e"
+            ]
+        ]
+    },
+    {
+        "id": "485b04fbce25025e",
+        "type": "function",
+        "z": "90b4604e78b9f9b8",
+        "name": "Debug: Generate ECG wave",
+        "func": "function generateECGString(sampleRate = 125, durationSec = 15) {\n    const samples = sampleRate * durationSec;\n    const ecg = [];\n\n    const heartRate = 72; // bpm\n    const beatPeriod = 60 / heartRate; // seconds per beat\n\n    for (let i = 0; i < samples; i++) {\n        const t = i / sampleRate;\n        const phase = t % beatPeriod;\n\n        let value = 0;\n\n        // P wave\n        value += 0.15 * Math.exp(-Math.pow((phase - 0.15) / 0.03, 2));\n\n        // Q wave\n        value += -0.05 * Math.exp(-Math.pow((phase - 0.28) / 0.01, 2));\n\n        // R wave\n        value += 1.0 * Math.exp(-Math.pow((phase - 0.30) / 0.008, 2));\n\n        // S wave\n        value += -0.15 * Math.exp(-Math.pow((phase - 0.32) / 0.012, 2));\n\n        // T wave\n        value += 0.35 * Math.exp(-Math.pow((phase - 0.45) / 0.05, 2));\n\n        // Baseline wander\n        value += 0.02 * Math.sin(2 * Math.PI * 0.33 * t);\n\n        // Noise\n        value += (Math.random() - 0.5) * 0.02;\n\n        ecg.push(value.toFixed(4));\n    }\n\n    // Return as a single string\n    return ecg.join(\",\");\n}\n\n// Node-RED compatible\nmsg.payload = generateECGString(125, 15);\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fc32f9322180e738",
+        "type": "function",
+        "z": "90b4604e78b9f9b8",
+        "name": "Convert to Image",
+        "func": "// 1. Parse Input\n// Handle both Array input and String (CSV) input\nlet data = [];\nif (typeof msg.payload === 'string') {\n    // split by comma, remove whitespace, convert to float\n    data = msg.payload.split(',').map(n => parseFloat(n.trim()));\n} else if (Array.isArray(msg.payload)) {\n    data = msg.payload;\n} else {\n    node.error(\"Input must be an array or CSV string\");\n    return null;\n}\n\n// Configuration\nconst width = 800;      // Image width\nconst height = 400;     // Image height\nconst sampleRate = 125; // Hz\n\n// 2. Determine Scale (Min/Max)\nlet min = Infinity;\nlet max = -Infinity;\n// Filter out NaNs just in case\ndata = data.filter(n => !isNaN(n));\n\nfor (let n of data) {\n    if (n < min) min = n;\n    if (n > max) max = n;\n}\n\n// Add 5% padding to top/bottom so the line doesn't hit the edge\nconst range = max - min;\nconst padding = (range === 0) ? 1 : range * 0.05;\nconst yMin = min - padding;\nconst yMax = max + padding;\nconst yRange = yMax - yMin;\nconst xStep = width / (data.length > 1 ? data.length - 1 : 1);\n\n// 3. Generate SVG Path\nlet pathData = \"\";\nfor (let i = 0; i < data.length; i++) {\n    const x = i * xStep;\n    // Normalize Y to 0-1 range, then flip (SVG 0 is at top)\n    const normalizedY = (data[i] - yMin) / yRange;\n    const y = height - (normalizedY * height);\n\n    if (i === 0) {\n        pathData += `M ${x.toFixed(2)} ${y.toFixed(2)}`;\n    } else {\n        pathData += ` L ${x.toFixed(2)} ${y.toFixed(2)}`;\n    }\n}\n\n// 4. Create Zero Line (if zero is within range)\nlet zeroLine = \"\";\nif (yMin < 0 && yMax > 0) {\n    const zeroY = height - ((0 - yMin) / yRange * height);\n    zeroLine = `<line x1=\"0\" y1=\"${zeroY}\" x2=\"${width}\" y2=\"${zeroY}\" stroke=\"gray\" stroke-width=\"1\" stroke-dasharray=\"4\"/>`;\n}\n\n// 5. Construct SVG String\nconst svg = `\n<svg width=\"${width}\" height=\"${height}\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background-color:white;\">\n    ${zeroLine}\n    \n    <path d=\"${pathData}\" fill=\"none\" stroke=\"#BF201F\" stroke-width=\"1.5\" />\n    \n    <text x=\"10\" y=\"20\" font-family=\"monospace\" font-size=\"12\" fill=\"red\">Max: ${max.toFixed(4)}</text>\n    <text x=\"10\" y=\"${height - 10}\" font-family=\"monospace\" font-size=\"12\" fill=\"green\">Min: ${min.toFixed(4)}</text>\n    <text x=\"${width - 120}\" y=\"${height - 10}\" font-family=\"monospace\" font-size=\"12\" fill=\"black\">\n        Length: ${(data.length / sampleRate).toFixed(2)}s\n    </text>\n</svg>`;\n\nconst base64 = Buffer.from(svg).toString('base64');\n\n// Create the Data URI string\nmsg.payload = `data:image/svg+xml;base64,${base64}`;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 560,
+        "wires": [
+            [
+                "1178f7b84e7f6015"
+            ]
+        ]
+    },
+    {
+        "id": "1178f7b84e7f6015",
+        "type": "ui_template",
+        "z": "90b4604e78b9f9b8",
+        "group": "a3fd5844853ee978",
+        "name": "Display ECG Data",
+        "order": 12,
+        "width": 9,
+        "height": 5,
+        "format": "<img ng-src=\"{{msg.payload}}\"\n     style=\"width:100%; height:auto; border:2px solid #004D65; border-radius:8px; padding:6px; background:white;\">",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 790,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c5b4c10c1c4071f3",
+        "type": "ui_text",
+        "z": "90b4604e78b9f9b8",
+        "group": "a3fd5844853ee978",
+        "order": 14,
+        "width": 4,
+        "height": 2,
+        "name": "Current Time",
+        "label": "Time: ",
+        "format": "{{msg.time}}",
+        "layout": "col-center",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "15",
+        "color": "#004d65",
+        "x": 790,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "c0c765e387588605",
+        "type": "ui_template",
+        "z": "90b4604e78b9f9b8",
+        "group": "a3fd5844853ee978",
+        "name": "Display Patient Photo",
+        "order": 1,
+        "width": 4,
+        "height": 4,
+        "format": "<img ng-src=\"http://192.168.1.130:1880/neuroband/patient_images/patient_1.jpeg\"\n     style=\"width:100%;\n            height:auto;\n            border:2px solid #004D65;\n            border-radius:8px;\n            padding:6px;\n            background:white;\">",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 360,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a5049965f06fd82d",
+        "type": "inject",
+        "z": "90b4604e78b9f9b8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 250,
+        "y": 40,
+        "wires": [
+            [
+                "9afa52de0d3dbe56"
+            ]
+        ]
+    },
+    {
+        "id": "9afa52de0d3dbe56",
+        "type": "function",
+        "z": "90b4604e78b9f9b8",
+        "name": "Return Patient Info",
+        "func": "msg.payload = {\n    name: \"John Doe\",\n    age: 30,\n    gender: \"Male\",\n    patient_id: \"MD51\"\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 40,
+        "wires": [
+            [
+                "107a653c2db2df22",
+                "33d956c649a67934",
+                "b766ee1239df98fb",
+                "dc1510737131244c"
+            ]
+        ]
+    },
+    {
+        "id": "107a653c2db2df22",
+        "type": "ui_text",
+        "z": "90b4604e78b9f9b8",
+        "group": "a3fd5844853ee978",
+        "order": 2,
+        "width": 5,
+        "height": 1,
+        "name": "Patient Name",
+        "label": "Name: ",
+        "format": "{{msg.payload.name}}",
+        "layout": "row-center",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "15",
+        "color": "#004d65",
+        "x": 680,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "33d956c649a67934",
+        "type": "ui_text",
+        "z": "90b4604e78b9f9b8",
+        "group": "a3fd5844853ee978",
+        "order": 3,
+        "width": 5,
+        "height": 1,
+        "name": "Patient Gender",
+        "label": "Gender: ",
+        "format": "{{msg.payload.gender}}",
+        "layout": "row-center",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "15",
+        "color": "#004d65",
+        "x": 680,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "b766ee1239df98fb",
+        "type": "ui_text",
+        "z": "90b4604e78b9f9b8",
+        "group": "a3fd5844853ee978",
+        "order": 6,
+        "width": 2,
+        "height": 1,
+        "name": "Patient Age",
+        "label": "Age: ",
+        "format": "{{msg.payload.age}}",
+        "layout": "row-center",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "15",
+        "color": "#004d65",
+        "x": 670,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "8119ad4c2ad4871b",
+        "type": "ui_template",
+        "z": "90b4604e78b9f9b8",
+        "group": "a3fd5844853ee978",
+        "name": "CSS Style",
+        "order": 11,
+        "width": 1,
+        "height": 1,
+        "format": "<style>\n    .md-toolbar-tools {\n        display: flex;\n        justify-content: center;\n    }\n</style>\n<style>\n    /* Styling for all the groups */\n    ui-card-panel {\n        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n        border-radius: 5px;\n        margin: auto;\n        justify-content: center;\n        text-align: center;\n    }\n\n    /* Styling for all the Elements in the Groups */\n    ui-card-panel * {\n        border-radius: 2.5px;\n        justify-content: center;\n        text-align: center;\n    }\n\n    /* Styling of the Group Title */\n    .nr-dashboard-cardtitle {\n        font-weight: bold !important;\n        text-align: center;\n    }\n\n    .title {\n        font-family: Verdana, sans-serif !important;\n        font-size: 28px !important;\n        color: #e7463d !important;\n        text-align: center;\n        font-weight: bold !important;\n    }\n\n    /* Styling the 'Weapon Detected' and 'Details' sections */\n    .section-title {\n        font-family: Verdana, sans-serif !important;\n        font-size: 24px !important;\n        color: #333; /* You can adjust this color if needed */\n        text-align: center;\n        font-weight: bold !important;\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "global",
+        "className": "",
+        "x": 640,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dc1510737131244c",
+        "type": "ui_text",
+        "z": "90b4604e78b9f9b8",
+        "group": "a3fd5844853ee978",
+        "order": 7,
+        "width": 2,
+        "height": 1,
+        "name": "Patient ID",
+        "label": "PID: ",
+        "format": "{{msg.payload.patient_id}}",
+        "layout": "row-center",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "15",
+        "color": "#004d65",
+        "x": 660,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "21853a0df9b7d91c",
+        "type": "ui_spacer",
+        "z": "90b4604e78b9f9b8",
+        "name": "spacer",
+        "group": "a3fd5844853ee978",
+        "order": 9,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "773444bb6b233931",
+        "type": "ui_spacer",
+        "z": "90b4604e78b9f9b8",
+        "name": "spacer",
+        "group": "a3fd5844853ee978",
+        "order": 15,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "bfc40b4ec03d15ad",
+        "type": "ui_spacer",
+        "z": "90b4604e78b9f9b8",
+        "name": "spacer",
+        "group": "a3fd5844853ee978",
+        "order": 16,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "40190016510a786f",
+        "type": "mqtt-broker",
+        "name": "espClient",
+        "broker": "192.168.1.130",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a3fd5844853ee978",
+        "type": "ui_group",
+        "name": "Bed A",
+        "tab": "38b4d82e7fbd2cf0",
+        "order": 2,
+        "disp": true,
+        "width": 9,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "38b4d82e7fbd2cf0",
+        "type": "ui_tab",
+        "name": "Room 1",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "e72449b2cc5a15f8",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
