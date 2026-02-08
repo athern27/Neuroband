@@ -14,7 +14,7 @@ A comprehensive wearable health monitoring system built on ESP32-S3 using FreeRT
 2) Clone the repo and install libs (PlatformIO will auto-fetch from `platformio.ini`):  
    ```bash
    git clone https://github.com/athern27/Neuroband.git
-   cd Neuroband
+   cd Neuroband/Memento_Code
    ```
 3) Update credentials/broker in `src/main.cpp` near the top (`ssid`, `password`, `mqtt_server`) to match your environment.
 4) Build firmware :  
