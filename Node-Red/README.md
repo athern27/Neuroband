@@ -20,7 +20,7 @@ Use this README to import and configure the `Neuroband.json` dashboard flow for 
   - `esp32/movement_status` → dashboard text “MOVEMENT”
   - `esp32/help_status` → dashboard text “Status” + toast notification when payload ≠ `HELP_OK`
   - `esp32/blood_pressure_value` → dashboard text “Blood Pressure”
-  - `esp32/recieve_ecg_data` → ECG CSV/array converted to an SVG preview
+  - `esp32/recieve_ecg_data` (topic name as defined in the flow) → ECG CSV/array converted to an SVG preview
 - **Outbound (to device)**
   - `esp32/ask_ecg_data` → triggered by **Get ECG data** dashboard button
 
